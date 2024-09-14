@@ -8,27 +8,27 @@
 
 void Main()
 {
-    // Retrieve API key from environment variable
-    var apiKey = "OPENAI-API-KEY";
-    if (string.IsNullOrEmpty(apiKey))
-    {
-        Console.WriteLine("API key not found. Please set the OPENAI_API_KEY environment variable.");
-        return;
-    }
+	// Retrieve API key from environment variable
+	var apiKey = "OPENAI_API_KEY";
+	if (string.IsNullOrEmpty(apiKey))
+	{
+		Console.WriteLine("API key not found. Please set the OPENAI_API_KEY environment variable.");
+		return;
+	}
 
-    var imagesDirectory = @"C:\MRI_Images";
-    var diagnoses = new List<string>();
+	var imagesDirectory = @"C:\MRI_Images";
+	var diagnoses = new List<string>();
 
-    // Limit the number of images for testing
-    foreach (var imagePath in Directory.GetFiles(imagesDirectory))
-    {
-        var diagnosis = GetDiagnosisFromImage(apiKey, imagePath).Result;
-        diagnoses.Add(diagnosis);
-        Console.WriteLine($"Processed {Path.GetFileName(imagePath)}: {diagnosis}");
-    }
+	// Limit the number of images for testing
+	foreach (var imagePath in Directory.GetFiles(imagesDirectory))
+	{
+		var diagnosis = GetDiagnosisFromImage(apiKey, imagePath).Result;
+		diagnoses.Add(diagnosis);
+		Console.WriteLine($"Processed {Path.GetFileName(imagePath)}: {diagnosis}");
+	}
 
-    var finalConclusion = GetFinalConclusion(apiKey, diagnoses).Result;
-    Console.WriteLine($"Final Conclusion: {finalConclusion}");
+	var finalConclusion = GetFinalConclusion(apiKey, diagnoses).Result;
+	Console.WriteLine($"Final Conclusion: {finalConclusion}");
 }
 
 
@@ -45,15 +45,15 @@ async Task<string> GetDiagnosisFromImage(string apiKey, string imagePath)
 
 		// Prepare the messages with the correct content structure
 		// Generalized prompt for MRI analysis across any body part
-var messages = new[]
-{
-    new
-    {
-        role = "user",
-        content = new object[]
-        {
-            new { type = "text", text = "This MRI image is part of a workflow to assist radiologists in identifying areas of interest. Please describe any notable features or patterns present in the image, such as differences in tissue density, unusual structures, or potential anomalies. This analysis should focus on assisting a radiologist in identifying areas that may require further review. This is not a medical diagnosis but a tool to support their evaluation." },
-            new
+		var messages = new[]
+		{
+	new
+	{
+		role = "user",
+		content = new object[]
+		{
+			new { type = "text", text = "This MRI image is part of a workflow to assist radiologists in identifying areas of interest. Please describe any notable features or patterns present in the image, such as differences in tissue density, unusual structures, or potential anomalies. This analysis should focus on assisting a radiologist in identifying areas that may require further review. This is not a medical diagnosis but a tool to support their evaluation." },
+			new
 			{
 				type = "image_url",
 				image_url = new
