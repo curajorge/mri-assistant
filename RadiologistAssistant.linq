@@ -16,7 +16,10 @@ void Main()
 		return;
 	}
 
-	var imagesDirectory = @"C:\MRI_Images";
+	var scriptDirectory = Path.GetDirectoryName(Util.CurrentQueryPath);
+
+	// Get the images directory relative to the script's directory
+	var imagesDirectory = Path.Combine(scriptDirectory, "MRI_Images");
 	var diagnoses = new List<string>();
 
 	// Limit the number of images for testing
@@ -47,8 +50,8 @@ async Task<string> GetDiagnosisFromImage(string apiKey, string imagePath)
 		// Generalized prompt for MRI analysis across any body part
 		var messages = new[]
 		{
-	new
-	{
+		new
+			{
 		role = "user",
 		content = new object[]
 		{
