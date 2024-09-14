@@ -1,17 +1,53 @@
 # GPT-4o Radiologist Assistant Tool
 
-This project demonstrates how GPT-4o can assist radiologists by analyzing MRI images. It is designed to highlight patterns, structures, and potential anomalies in MRI scans, serving as a research tool to support radiologists in their workflow.
+This repository contains a tool that utilizes OpenAI's GPT-4o model with vision capabilities to assist radiologists in analyzing MRI images. The tool is designed to highlight key features and anomalies, serving as a supplementary tool for radiologists to aid in their workflow. And yes, this project is built using **LINQPad… because why not?**
 
-## How it works:
-The tool uses OpenAI's GPT-4o model with vision capabilities to:
-- Analyze MRI images in base64-encoded format.
-- Provide research-based insights, such as tissue density, unusual structures, or anomalies.
-- Serve as a supplementary assistant, NOT for medical diagnosis.
+## Overview
 
-## How to run:
-1. Set up an OpenAI API key.
-2. Encode your MRI images to base64 format.
-3. Use the provided C# script to send the image to the GPT-4o API.
+This tool provides:
+- Analysis of MRI images to identify patterns, structures, and potential anomalies.
+- Descriptions of tissue density differences, irregular structures, or areas that might need further review.
+- Support for radiologists in identifying areas of interest, but it does **not provide medical diagnoses**.
 
-## Installation
-1. Clone the repo: 
+## Why LINQPad?
+
+This project is developed in **LINQPad** because:
+- It offers a lightweight environment for rapid prototyping and testing.
+- It allows quick iteration and real-time feedback without the overhead of a traditional IDE.
+- Sometimes, you just want simplicity—**LINQPad… because why not?**
+
+## How It Works
+
+1. **Image Processing**: The tool accepts MRI images encoded in base64 format.
+2. **Model Integration**: GPT-4o processes the image and highlights features such as tissue patterns, anomalies, or irregularities that may be relevant to the radiologist.
+3. **Output**: The tool provides a description of the features in the MRI, assisting radiologists in identifying areas that may require further analysis.
+
+## Installation and Usage
+
+### Prerequisites
+
+- LINQPad 5 or later (for running the C# code).
+- OpenAI API Key with access to GPT-4o.
+
+### Steps
+
+1. Clone this repository
+2. Open the `.linq` file in LINQPad.
+3. Set up your **OpenAI API Key** in the environment variables or hardcode it in the script (for testing purposes).
+4. Ensure your MRI images are base64-encoded.
+5. Run the LINQPad script to send the images to GPT-4o and retrieve descriptive insights.
+
+## Example
+
+Here’s a basic example of what the output might look like for an MRI image:
+
+**Input**: MRI image (base64-encoded)
+
+**Output**:  
+- Descriptions of visible structures.
+- Highlighted patterns or anomalies that require further investigation.
+- General tissue density observations.
+
+## Limitations
+
+- This tool does **not** provide medical diagnoses and is not intended to replace the expertise of a trained radiologist. It is designed to assist by highlighting areas for further review.
