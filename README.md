@@ -21,6 +21,7 @@ This project is developed in **LINQPad** because:
 1. **Image Processing**: The tool accepts MRI images encoded in base64 format.
 2. **Model Integration**: GPT-4o processes the image and highlights features such as tissue patterns, anomalies, or irregularities that may be relevant to the radiologist.
 3. **Output**: The tool provides a description of the features in the MRI, assisting radiologists in identifying areas that may require further analysis.
+4. **Image Upload**: The tool allows users to upload their own MRI images from a local directory for analysis.
 
 ## Installation and Usage
 
@@ -34,8 +35,8 @@ This project is developed in **LINQPad** because:
 1. Clone this repository
 2. Open the `.linq` file in LINQPad.
 3. Set up your **OpenAI API Key** in the environment variables or hardcode it in the script (for testing purposes).
-4. Ensure your MRI images are base64-encoded.
-5. Run the LINQPad script to send the images to GPT-4o and retrieve descriptive insights.
+4. Run the LINQPad script and, when prompted, provide the path to the directory containing your MRI images.
+5. The script will then send the images to GPT-4o and retrieve descriptive insights.
 
 ## Example
 
@@ -47,6 +48,15 @@ Here’s a basic example of what the output might look like for an MRI image:
 - Descriptions of visible structures.
 - Highlighted patterns or anomalies that require further investigation.
 - General tissue density observations.
+
+## Future Features
+
+- [ ] **Real-time Image Analysis**: Implement a feature to analyze images as they are uploaded.
+- [ ] **Batch Processing**: Allow users to upload multiple images at once for batch analysis.
+- [ ] **Integration with PACS**: Integrate with PACS systems to directly pull images for analysis.
+- [ ] **User Authentication**: Add user authentication to protect patient data.
+- [ ] **Report Generation**: Generate a PDF report of the analysis.
+- [ ] **Image Annotation**: Allow users to annotate images with their own notes and observations.
 
 ## Limitations
 
