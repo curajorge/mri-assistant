@@ -16,10 +16,9 @@ void Main()
 		return;
 	}
 
-    var scriptDirectory = Path.GetDirectoryName(Util.CurrentQueryPath);
-
-    // Get the images directory relative to the script's directory
-    var imagesDirectory = Path.Combine(scriptDirectory, "MRI_Images");
+    // Prompt user for the directory path
+    Console.WriteLine("Please enter the path to the directory containing your MRI images:");
+    var imagesDirectory = Console.ReadLine();
 
     if (!Directory.Exists(imagesDirectory))
     {
